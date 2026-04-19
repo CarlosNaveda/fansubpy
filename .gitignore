@@ -1,0 +1,25 @@
+# Outputs generados por el script
+*.ass
+*.srt
+
+# Archivos de audio/video
+*.mp3
+*.mp4
+*.wav
+*.mkv
+*.avi
+
+# Entorno virtual
+.venv/
+venv/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# PyCharm
+.idea/
+
+# Modelos descargados por Whisper (se guardan en cache del sistema, no en el repo)
+*.pt
