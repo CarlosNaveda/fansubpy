@@ -1,25 +1,22 @@
-# Outputs generados por el script
-*.ass
-*.srt
-
-# Archivos de audio/video
-*.mp3
-*.mp4
-*.wav
-*.mkv
-*.avi
-
-# Entorno virtual
-.venv/
-venv/
+# Archivos generados por pyonfx (se regeneran con run.py)
+*_fx.ass
 
 # Python
 __pycache__/
 *.pyc
 *.pyo
+.env
+venv/
 
-# PyCharm
-.idea/
-
-# Modelos descargados por Whisper (se guardan en cache del sistema, no en el repo)
+# Modelos de Whisper (pesados, no van al repo)
 *.pt
+
+# Archivos de audio y video (demasiado pesados)
+*.mp3
+*.mp4
+*.wav
+*.mkv
+
+# OS
+.DS_Store
+Thumbs.db
