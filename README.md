@@ -58,7 +58,7 @@ pip install openai-whisper pyphen pysrt
 
 <!-- AUTO:estructura -->
 ```
-README.md
+
 fx/
     ├── core
     │   ├── __init__.py
