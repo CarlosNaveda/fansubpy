@@ -15,8 +15,6 @@ import re
 import sys
 from pathlib import Path
 
-from sympy.codegen.ast import continue_
-
 ROOT    = Path(__file__).parent
 README  = ROOT / "README.md"
 FX_DIR  = ROOT / "fx"
