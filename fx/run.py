@@ -1,14 +1,3 @@
-"""
-Uso:
-    python run.py <carpeta_cancion>
-
-Ejemplo:
-    python run.py linkin-park-in-the-end
-
-Lee:    ../fansubs/<carpeta_cancion>/timings/output_karaoke.ass
-Genera: ../fansubs/<carpeta_cancion>/timings/output_karaoke_fx.ass
-"""
-
 import sys
 import argparse
 from pathlib import Path
@@ -26,7 +15,7 @@ EFFECT_MAP = {
 
 
 def run(song: str):
-    base   = Path(__file__).parent.parent / "fansubs" / song / "timings"
+    base   = Path(__file__).parent.parent / "fansubs" / song / "timing"
     input_ = base / "output_karaoke.ass"
     output = base / "output_karaoke_fx.ass"
 

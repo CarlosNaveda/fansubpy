@@ -13,6 +13,8 @@ Video File: Linkin Park - In the end.mp4
 Video AR Mode: 4
 Video AR Value: 1.797753
 Video Zoom Percent: 0.500000
+Scroll Position: 45
+Active Line: 67
 Video Position: 449
 
 [V4+ Styles]
@@ -83,3 +85,62 @@ Dialogue: 0,0:02:47.20,0:02:52.24,Chester+Hard,Chester+Hard,0,0,0,karaoke,{\k21}
 Dialogue: 0,0:02:52.24,0:02:56.21,Chester+Hard,Chester+Hard,0,0,0,karaoke,{\k30}But {\k14}in {\k20}the {\k112}end, {\k31}it {\k30}doesn't {\k56}even {\k56}ma{\k48}tter
 Dialogue: 0,0:02:56.33,0:03:01.18,Chester+Hard,Chester+Hard,0,0,0,karaoke,{\k25}I {\k52}had {\k63}to {\k81}fall {\k25}to {\k52}lose {\k43}it {\k144}all
 Dialogue: 0,0:03:01.41,0:03:07.51,Chester+Hard,Chester+Hard,0,0,0,karaoke,{\k16}But {\k16}in {\k35}the {\k113}end, {\k30}it {\k30}doesn't {\k57}even {\k61}ma{\k194}tter
+Dialogue: 0,0:00:18.69,0:00:21.01,Chester - Esp,Chester,0,0,0,karaoke,(Empieza con una)
+Dialogue: 0,0:00:20.08,0:00:22.22,Shinoda - Esp,Shinoda,0,0,0,karaoke,Una cosa, no sé por qué
+Dialogue: 0,0:00:22.22,0:00:24.34,Shinoda - Esp,Shinoda,0,0,0,karaoke,Ni siquiera importa cuánto lo intentes
+Dialogue: 0,0:00:24.55,0:00:26.50,Shinoda - Esp,Shinoda,0,0,0,karaoke,Ten eso en mente, diseñé esta rima
+Dialogue: 0,0:00:26.50,0:00:28.04,Shinoda - Esp,Shinoda,0,0,0,karaoke,Para explicarlo a su debido tiempo
+Dialogue: 0,0:00:28.10,0:00:30.21,Chester - Esp,Chester,0,0,0,karaoke,(todo lo que sé)
+Dialogue: 0,0:00:29.78,0:00:31.20,Shinoda - Esp,Shinoda,0,0,0,karaoke,El tiempo es algo valioso
+Dialogue: 0,0:00:31.37,0:00:33.52,Shinoda - Esp,Shinoda,0,0,0,karaoke,Míralo volar mientras el péndulo se balancea
+Dialogue: 0,0:00:33.61,0:00:35.62,Shinoda - Esp,Shinoda,0,0,0,karaoke,Míralo contar hasta el final del día
+Dialogue: 0,0:00:35.66,0:00:38.79,Shinoda - Esp,Shinoda,0,0,0,karaoke,El reloj consume la vida, es tan irreal
+Dialogue: 0,0:00:36.99,0:00:39.97,Chester - Esp,Chester,0,0,0,karaoke,(es tan irreal)
+Dialogue: 0,0:00:38.89,0:00:40.37,Shinoda - Esp,Shinoda,0,0,0,karaoke,No miré hacia abajo
+Dialogue: 0,0:00:40.51,0:00:42.77,Shinoda - Esp,Shinoda,0,0,0,karaoke,Vi cómo el tiempo se iba por la ventana
+Dialogue: 0,0:00:42.80,0:00:44.96,Shinoda - Esp,Shinoda,0,0,0,karaoke,Intentando aferrarme a lo que ni siquiera conocía
+Dialogue: 0,0:00:44.96,0:00:47.92,Shinoda - Esp,Shinoda,0,0,0,karaoke,Lo desperdicié todo solo para verte ir
+Dialogue: 0,0:00:46.32,0:00:55.05,Chester - Esp,Chester,0,0,0,karaoke,(verte ir)
+Dialogue: 0,0:00:47.96,0:00:49.40,Shinoda - Esp,Shinoda,0,0,0,karaoke,Guardé todo dentro
+Dialogue: 0,0:00:49.42,0:00:51.86,Shinoda - Esp,Shinoda,0,0,0,karaoke,Y aunque lo intenté, todo se desmoronó
+Dialogue: 0,0:00:52.08,0:00:53.76,Shinoda - Esp,Shinoda,0,0,0,karaoke,Lo que significó para mí, eventualmente
+Dialogue: 0,0:00:53.76,0:00:55.45,Shinoda - Esp,Shinoda,0,0,0,karaoke,Será un recuerdo de un tiempo en que
+Dialogue: 0,0:00:55.24,0:01:00.33,Chester - Esp,Chester,0,0,0,karaoke,Lo intenté tanto y llegué tan lejos
+Dialogue: 0,0:01:00.37,0:01:04.35,Chester - Esp,Chester,0,0,0,karaoke,Pero al final, ni siquiera importa
+Dialogue: 0,0:01:04.35,0:01:09.20,Chester - Esp,Chester,0,0,0,karaoke,Tuve que caer para perderlo todo
+Dialogue: 0,0:01:09.41,0:01:14.93,Chester - Esp,Chester,0,0,0,karaoke,Pero al final, ni siquiera importa
+Dialogue: 0,0:01:14.93,0:01:17.04,Shinoda - Esp,Shinoda,0,0,0,karaoke,Una cosa, no sé por qué
+Dialogue: 0,0:01:17.15,0:01:19.18,Shinoda - Esp,Shinoda,0,0,0,karaoke,Ni siquiera importa cuánto lo intentes
+Dialogue: 0,0:01:19.35,0:01:21.32,Shinoda - Esp,Shinoda,0,0,0,karaoke,Ten eso en mente, diseñé esta rima
+Dialogue: 0,0:01:21.33,0:01:24.48,Shinoda - Esp,Shinoda,0,0,0,karaoke,Para recordarme cuánto lo intenté
+Dialogue: 0,0:01:22.75,0:01:25.09,Chester - Esp,Chester,0,0,0,karaoke,(lo intenté tanto)
+Dialogue: 0,0:01:24.48,0:01:26.50,Shinoda - Esp,Shinoda,0,0,0,karaoke,A pesar de la forma en que te burlabas de mí
+Dialogue: 0,0:01:26.74,0:01:28.68,Shinoda - Esp,Shinoda,0,0,0,karaoke,Actuando como si yo fuera parte de tu propiedad
+Dialogue: 0,0:01:28.76,0:01:31.01,Shinoda - Esp,Shinoda,0,0,0,karaoke,Recordando todas las veces que peleaste conmigo
+Dialogue: 0,0:01:31.14,0:01:33.22,Shinoda - Esp,Shinoda,0,0,0,karaoke,Me sorprende que haya llegado tan lejos
+Dialogue: 0,0:01:31.98,0:01:34.01,Chester - Esp,Chester,0,0,0,karaoke,(tan lejos)
+Dialogue: 0,0:01:33.22,0:01:35.49,Shinoda - Esp,Shinoda,0,0,0,karaoke,Las cosas ya no son como antes
+Dialogue: 0,0:01:35.89,0:01:37.86,Shinoda - Esp,Shinoda,0,0,0,karaoke,Ni siquiera me reconocerías ahora
+Dialogue: 0,0:01:38.05,0:01:39.78,Shinoda - Esp,Shinoda,0,0,0,karaoke,No es que me conocieras en ese entonces
+Dialogue: 0,0:01:39.78,0:01:41.20,Shinoda - Esp,Shinoda,0,0,0,karaoke,Pero todo vuelve a mí
+Dialogue: 0,0:01:41.41,0:01:49.97,Chester - Esp,Chester,0,0,0,karaoke,(al final)
+Dialogue: 0,0:01:42.73,0:01:44.24,Shinoda - Esp,Shinoda,0,0,0,karaoke,Guardaste todo dentro
+Dialogue: 0,0:01:44.24,0:01:46.70,Shinoda - Esp,Shinoda,0,0,0,karaoke,Y aunque lo intenté, todo se desmoronó
+Dialogue: 0,0:01:46.90,0:01:48.63,Shinoda - Esp,Shinoda,0,0,0,karaoke,Lo que significó para mí, eventualmente
+Dialogue: 0,0:01:48.63,0:01:50.30,Shinoda - Esp,Shinoda,0,0,0,karaoke,Será un recuerdo de un tiempo en que
+Dialogue: 0,0:01:50.08,0:01:55.00,Chester - Esp,Chester,0,0,0,karaoke,Lo intenté tanto y llegué tan lejos
+Dialogue: 0,0:01:55.00,0:01:58.98,Chester - Esp,Chester,0,0,0,karaoke,Pero al final, ni siquiera importa
+Dialogue: 0,0:01:58.98,0:02:04.08,Chester - Esp,Chester,0,0,0,karaoke,Tuve que caer para perderlo todo
+Dialogue: 0,0:02:04.08,0:02:10.02,Chester - Esp,Chester,0,0,0,karaoke,Pero al final, ni siquiera importa
+Dialogue: 0,0:02:10.60,0:02:15.08,Chester - Esp,Chester,0,0,0,karaoke,Puse mi confianza en ti
+Dialogue: 0,0:02:15.60,0:02:19.50,Chester - Esp,Chester,0,0,0,karaoke,Empujé hasta donde pude llegar
+Dialogue: 0,0:02:20.04,0:02:21.95,Chester - Esp,Chester,0,0,0,karaoke,Por todo esto
+Dialogue: 0,0:02:22.18,0:02:28.73,Chester - Esp,Chester,0,0,0,karaoke,Solo hay una cosa que debes saber
+Dialogue: 0,0:02:28.92,0:02:33.56,Chester+Hard - Esp,Chester+Hard,0,0,0,karaoke,Puse mi confianza en ti
+Dialogue: 0,0:02:33.73,0:02:38.02,Chester+Hard - Esp,Chester+Hard,0,0,0,karaoke,Empujé hasta donde pude llegar
+Dialogue: 0,0:02:38.30,0:02:40.27,Chester+Hard - Esp,Chester+Hard,0,0,0,karaoke,Por todo esto
+Dialogue: 0,0:02:40.37,0:02:46.94,Chester+Hard - Esp,Chester+Hard,0,0,0,karaoke,Solo hay una cosa que debes saber
+Dialogue: 0,0:02:47.20,0:02:52.24,Chester+Hard - Esp,Chester+Hard,0,0,0,karaoke,Lo intenté tanto y llegué tan lejos
+Dialogue: 0,0:02:52.24,0:02:56.21,Chester+Hard - Esp,Chester+Hard,0,0,0,karaoke,Pero al final, ni siquiera importa
+Dialogue: 0,0:02:56.33,0:03:01.18,Chester+Hard - Esp,Chester+Hard,0,0,0,karaoke,Tuve que caer para perderlo todo
+Dialogue: 0,0:03:01.41,0:03:07.51,Chester+Hard - Esp,Chester+Hard,0,0,0,karaoke,Pero al final, ni siquiera importa

@@ -1,18 +1,41 @@
 # Fansubpy 🎵
+ > ⚠️ Este script fue desarrollado por [Claude](https://claude.ai) (Anthropic) en colaboración con Carlos Naveda. Es una primera versión funcional que se irá mejorando con el tiempo.
 
-Script de Python para generar subtítulos karaoke con timing sílaba por sílaba a partir de un archivo de audio o video, listo para importar en **Aegisub**.
-
-> ⚠️ Este script fue desarrollado por [Claude](https://claude.ai) (Anthropic) en colaboración con Carlos Naveda. Es una primera versión funcional que se irá mejorando con el tiempo.
-
+![Fansubpy](assets/banner.png)
 ---
-
-## ¿Qué hace?
+## ¿Qué hace fansubpy?
+Script de Python para generar subtítulos karaoke con timing sílaba por sílaba a partir de un archivo de audio o video, genera un archivo .ass listo para importar en **Aegisub**.
 
 1. Usa **Whisper** (OpenAI) para transcribir el audio y obtener timestamps por palabra
 2. Usa el **lyric** como referencia para respetar los cortes de línea exactos
 3. Alinea inteligentemente el lyric con los timestamps de Whisper usando `difflib`
 4. Silabea cada palabra con **pyphen**
 5. Exporta un archivo `.ass` con tags `\k` por sílaba, listo para Aegisub
+6. Podemos aplicar **efectos** ya creados a todas las líneas del archivo `.ass`
+
+## Notas
+
+1. Sobre el <span style="color:#3C8CE2">timing</span>: El timing sílaba por sílaba es una **aproximación** — distribuye el tiempo de cada palabra proporcionalmente entre sus sílabas. Si se requiere más precisión habrá ajustes manuales que hacer en Aegisub.
+2. Sobre el <span style="color:#3C8CE2">idioma</span>: Por default se usa el mismo lenguaje del archivo de audio a utilizar. En caso se requiera modificar se puede hacer en el archivo "main.py" sección "Configuración".
+3. Sobre los <span style="color:#3C8CE2">formatos</span>: El script acepta cualquier formato de audio/video que soporte FFmpeg.
+4. Sobre <span style="color:#ff6b6b">problemas conocidos</span>: (Este tipo de problemas he visto que se requiere solucionar manualmente ya en Aegisub)
+- Start adelantado — Whisper adelanta el inicio de frases al silencio previo (110 ms–1230 ms). Afecta principalmente frases tras pausas musicales o instrumentales.
+- Silabeo proporcional — Las sílabas se distribuyen en tiempo igual dentro de cada palabra. No detecta que una sílaba se canta más larga que otra.
+- Palabras perdidas por Whisper — Ocasionalmente Whisper no transcribe una palabra (ej. "cielo"). El alineador la interpola con timing estimado.
+- Timestamps de fin — Ligeras imprecisiones en el end de líneas con palabras largas o notas sostenidas.
+
+5. Sobre <span style="color:#62BC8C">estimado de precisión</span>:
+Si separamos los tipos de ajuste:
+- Estructura de líneas (qué palabras van en cada línea): ~95% correcto 
+- Timing de línea (start/end): ~60% correcto sin ajuste (los 28 sin problema de start/end)
+- Silabeo por distribución: funcional, pero siempre necesita ajuste fino en canciones lentas o con notas sostenidas
+- Estimado global: 60–65% listo para usar directamente, 35–40% requiere ajuste manual en Aegisub.
+
+---
+## Estructura
+<!-- AUTO:estructura -->
+
+<!-- /AUTO:estructura -->
 
 ---
 
@@ -37,9 +60,10 @@ FFmpeg es necesario para que Whisper pueda leer archivos de audio/video.
 ```bash
 ffmpeg -version
 ```
+### 3. Aegisub
+Descarga e instala Aegisub última versión desde [aegisub.org](https://aegisub.org/).
 
 ---
-
 ## Instalación
 
 ### 1. Crea y activa un entorno virtual
@@ -52,101 +76,69 @@ python -m venv .venv
 ```bash
 pip install openai-whisper pyphen pysrt
 ```
-
-
-## Estructura
-
-<!-- AUTO:estructura -->
+---
+## Flujo de trabajo
+### 1. Crear el proyecto
+El siguiente comando creará una carpeta llamada `Proyecto` y dentro generará la estructura oficial.
+```bash
+python init.py <Proyecto>
 ```
 
-fx/
-    ├── core
-    │   ├── __init__.py
-    │   ├── constants.py  # constantes globales de animación
-    │   └── particles.py  # helpers de partículas compartidos
-    ├── effects
-    │   ├── __init__.py
-    │   ├── glitch_electric.py  # Aberración cromática eléctrica — 3 capas superpuestas (R/B offset + base).
-    │   ├── rap_hit.py  # Golpes secos sin onda sinusoidal — feel de rap.
-    │   └── wave.py  # Ola suave con sacudida vertical en sílaba activa.
-    └── run.py  # punto de entrada — genera el _fx.ass
-generate_readme.py  # regenera las secciones dinámicas del README
-timings/
-    └── main.py  # genera output_karaoke.ass con Whisper
-```
-<!-- /AUTO:estructura -->
-
-## Añadir una canción nueva
-
+### 2. Configurar el proyecto
+Aquí se explica qué debe contener cada carpeta dentro del proyecto
 ```
 fansubs/
-└── nueva-cancion/    
-    ├── lyrics/  → pega el .txt con la letra aquí
-    ├── styles/  → exporta los estilos desde Aegisub
-    └── timings/ → se genera automáticamente
+└── Proyecto/
+    ├── audio/   → aquí coloca el arhivo que contiene el audio a fansubear (puede ser video o audio)    
+    ├── lyrics/  → aquí coloca el .txt con la letra en caso la tuvieras (es opcional)
+    ├── timing/ → se genera automáticamente    
+    └── styles/  → aquí coloca los estilos desde Aegisub (esto se coloca ya al final cuando tengas finalizado tu fansub)
+    
 ```
-
-## Flujo de trabajo
-
-### 1. Generar timeos
+### 3. Timing al audio/video
+El siguiente comando generará el timing al archivo que contiene el audio de la carpeta `audio/`, al finalizar generará en `timing/` el archivo `.ass`
 ```bash
-python timings/main.py linkin-park-in-the-end
+python main.py <Proyecto>
 ```
-Necesita: `fansubs/<cancion>/audio/*.mp3` y `fansubs/<cancion>/lyrics/*.txt`  
-Genera:   `fansubs/<cancion>/timings/output_karaoke.ass`
+Necesita: `fansubs/<Proyecto>/audio/*.mp4` (Puede ser otros formatos "*.mp3", "*.mp4", "*.wav", "*.m4a", "*.flac")  
+Genera:   `fansubs/<Proyecto>/timing/output_karaoke.ass`
 
-Abre el `.ass` en Aegisub para ajustar timeos manualmente si es necesario.
 
-### 2. Aplicar efectos
+### 4. Revisar el timeo en  Aesgisub
+Aquí se realizan los ajustes necesarios y aplican estilos manualmente.
+
+### 5. Aplicar efectos FX
+Para aplicar los efectos es necesario adaptar el código de `fx/run.py` para aplicar los efectos deseados, hay algunos efectos ya disponibles en `fx/`
 ```bash
-python fx/run.py linkin-park-in-the-end
+python fx/run.py <Proyecto>
 ```
-Lee:    `fansubs/<cancion>/timings/output_karaoke.ass`  
-Genera: `fansubs/<cancion>/timings/output_karaoke_fx.ass` (ignorado en git)
+Lee:    `fansubs/<Proyecto>/timing/output_karaoke.ass`  
+Genera: `fansubs/<Proyecto>/timing/output_karaoke_fx.ass` (ignorado en git por el peso que puede tener)
 
-## Efectos disponibles
-
+#### 5.1 Efectos disponibles
 <!-- AUTO:efectos -->
-| Archivo | Función | Descripción |
-|---|---|---|
-| `glitch_electric.py` | `glitch_electric` | Aberración cromática eléctrica — 3 capas superpuestas (R/B offset + base). |
-| `rap_hit.py` | `rap_hit` | Golpes secos sin onda sinusoidal — feel de rap. |
-| `wave.py` | `wave` | Ola suave con sacudida vertical en sílaba activa. |
 <!-- /AUTO:efectos -->
 
-## Asignar efectos a estilos
-
+#### 5.2 Asignar efectos a estilos
 Edita el `EFFECT_MAP` en `fx/run.py`:
-
 ```python
 EFFECT_MAP = {
     ("NombreEstilo", "karaoke"): wave,
     ("OtroEstilo",   "karaoke"): rap_hit,
 }
 ```
-
 El primer valor es el nombre del estilo en Aegisub. El segundo es el campo `Efecto` de la línea.
 
-## Pegar subtítulos al video con FFmpeg
-
+### 6. Pegar subtítulos al video con FFmpeg
 Una vez exportado el `.ass` final desde Aegisub:
 
 ```bash
-ffmpeg -i "tu_video.mp4" -vf "ass=output_karaoke.ass" "video_final.mp4"
+ffmpeg -i "tu_video.mp4" -vf "ass=output_karaoke_fx.ass" "video_final.mp4"
 ```
-
 > El font usado en el `.ass` debe estar instalado en tu sistema para que ffmpeg lo renderice correctamente.
 
 ---
 
-## Notas
 
-- El timing sílaba x sílaba es una **aproximación** — distribuye el tiempo de cada palabra proporcionalmente entre sus sílabas. Siempre habrá ajustes manuales en Aegisub.
-- Funciona con cualquier idioma soportado por Whisper, no solo español.
-- El script acepta cualquier formato de audio/video que soporte FFmpeg.
-
----
-
-## Créditos
-
-Script desarrollado por [Claude](https://claude.ai) (Anthropic) · Proyecto mantenido por [Carlos Naveda / ToNextAxis](https://youtube.com/@ToNextAxis)
+### Créditos
+[Claude](https://claude.ai) & Carlos Naveda 🤝
