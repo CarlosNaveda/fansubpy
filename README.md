@@ -35,7 +35,7 @@ Si separamos los tipos de ajuste:
 - Estimado global: 60–65% listo para usar directamente, 35–40% requiere ajuste manual en Aegisub.
 
 ---
-## Estructura
+## Estructura del proyecto
 <!-- AUTO:estructura -->
 ```
 assets/ 
