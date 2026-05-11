@@ -13,6 +13,9 @@ Script de Python para generar subtítulos karaoke con timing sílaba por sílaba
 5. Exporta un archivo `.ass` con tags `\k` por sílaba, listo para Aegisub
 6. Podemos aplicar **efectos** ya creados a todas las líneas del archivo `.ass`
 
+## ¿Quieres ver los videos ya generados con fansubpy?
+Pueden ver los videos en: https://minily.cc/fansubpy
+
 ## Notas
 
 1. Sobre el <span style="color:#3C8CE2">timing</span>: El timing sílaba por sílaba es una **aproximación** — distribuye el tiempo de cada palabra proporcionalmente entre sus sílabas. Si se requiere más precisión habrá ajustes manuales que hacer en Aegisub.
@@ -34,7 +37,26 @@ Si separamos los tipos de ajuste:
 ---
 ## Estructura
 <!-- AUTO:estructura -->
-
+```
+assets/ 
+    └── banner.png
+fansubs/   # proyectos terminados con fansubpy
+fx/   # efectos visuales para aplicar al archivo .ass con timing
+    ├── core
+    │   ├── __init__.py
+    │   ├── constants.py  # constantes globales de animación
+    │   └── particles.py  # helpers de partículas compartidos
+    ├── effects
+    │   ├── __init__.py
+    │   ├── glitch_electric.py  # Aberración cromática eléctrica — 3 capas superpuestas (R/B offset + base).
+    │   ├── rap_hit.py  # Golpes secos sin onda sinusoidal — feel de rap.
+    │   └── wave.py  # Ola suave con sacudida vertical en sílaba activa.
+    └── run.py  # punto de entrada — genera el _fx.ass
+generate_readme.py  # regenera las secciones dinámicas del README
+init.py  # crea la estructura del proyecto en /fansubs/<Proyecto>
+main.py  # genera output_karaoke.ass con Whisper
+README.md  # readme con todo el detalle para usar el proyecto
+```
 <!-- /AUTO:estructura -->
 
 ---
@@ -117,6 +139,11 @@ Genera: `fansubs/<Proyecto>/timing/output_karaoke_fx.ass` (ignorado en git por e
 
 #### 5.1 Efectos disponibles
 <!-- AUTO:efectos -->
+| Archivo | Función | Descripción |
+|---|---|---|
+| `glitch_electric.py` | `glitch_electric` | Aberración cromática eléctrica — 3 capas superpuestas (R/B offset + base). |
+| `rap_hit.py` | `rap_hit` | Golpes secos sin onda sinusoidal — feel de rap. |
+| `wave.py` | `wave` | Ola suave con sacudida vertical en sílaba activa. |
 <!-- /AUTO:efectos -->
 
 #### 5.2 Asignar efectos a estilos

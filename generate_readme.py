@@ -15,6 +15,8 @@ import re
 import sys
 from pathlib import Path
 
+from sympy.codegen.ast import continue_
+
 ROOT    = Path(__file__).parent
 README  = ROOT / "README.md"
 FX_DIR  = ROOT / "fx"
@@ -70,6 +72,7 @@ def build_tree(path: Path, prefix: str = "", root: Path = None) -> list[str]:
     if root is None:
         root = path
 
+    IGNORE_PARTS  = {"fansubs"}
     IGNORE_DIRS  = {"__pycache__", ".git", "venv", ".env", "node_modules"}
     IGNORE_EXTS  = {".pyc", ".pyo", ".mp3", ".mp4", ".wav", ".mkv", ".pt"}
     IGNORE_NAMES = lambda n: n.endswith("_fx.ass")
@@ -79,7 +82,8 @@ def build_tree(path: Path, prefix: str = "", root: Path = None) -> list[str]:
          if e.name not in IGNORE_DIRS
          and e.suffix not in IGNORE_EXTS
          and not IGNORE_NAMES(e.name)
-         and not e.name.startswith(".")],
+         and not e.name.startswith(".")
+         and IGNORE_PARTS.isdisjoint(e.parts)],
         key=lambda e: (e.is_file(), e.name.lower())
     )
 
@@ -104,17 +108,20 @@ def _inline_comment(entry: Path, root: Path) -> str:
     """Comentario inline para archivos/carpetas conocidos."""
     rel = entry.relative_to(root)
     comments = {
+        "fansubs":           "proyectos terminados con fansubpy",
+        "fx":                "efectos visuales para aplicar al archivo .ass con timing",
         "constants.py":      "constantes globales de animación",
         "particles.py":      "helpers de partículas compartidos",
         "run.py":            "punto de entrada — genera el _fx.ass",
         "main.py":           "genera output_karaoke.ass con Whisper",
+        "init.py":           "crea la estructura del proyecto en /fansubs/<Proyecto>",
         "generate_readme.py":"regenera las secciones dinámicas del README",
         ".gitignore":        "",
-        "README.md":         "",
+        "README.md":         "readme con todo el detalle para usar el proyecto",
         "audio":             ".mp3 del video (ignorado en git)",
         "lyrics":            ".txt con la letra línea por línea",
         "styles":            "styles.ass con los estilos de Aegisub",
-        "timings":           "output_karaoke.ass (timeos crudos)",
+        "timing":            "output_karaoke.ass (timeos crudos)",
     }
     # Efectos: leer primera línea del docstring
     if entry.suffix == ".py" and entry.parent.name == "effects" and entry.stem != "__init__":
@@ -133,7 +140,9 @@ def build_estructura() -> str:
             suffix  = f"  # {comment}" if comment else ""
             lines.append(f"{top.name}{suffix}")
         elif top.is_dir():
-            lines.append(f"{top.name}/")
+            comment = _inline_comment(top, ROOT)
+            suffix  = f"  # {comment}" if comment else ""
+            lines.append(f"{top.name}/ {suffix}")
             lines.extend(build_tree(top, prefix="    "))
 
     return "```\n" + "\n".join(lines) + "\n```"
