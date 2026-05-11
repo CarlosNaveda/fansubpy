@@ -15,6 +15,7 @@ Script de Python para generar subtítulos karaoke con timing sílaba por sílaba
 
 ## ¿Quieres ver los videos ya generados con fansubpy?
 Pueden ver los videos en: https://minily.cc/fansubpy
+Descarga los videos para que puedan verlo en toda su calidad 😃
 
 ## Notas
 
