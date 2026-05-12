@@ -39,8 +39,11 @@ Si separamos los tipos de ajuste:
 ## Estructura del proyecto
 <!-- AUTO:estructura -->
 ```
+README.md  # readme con todo el detalle para usar el proyecto
 assets/ 
-    └── banner.png
+    ├── banner.png
+    ├── logo.png
+    └── logo_sinfondo.png
 fansubs/   # proyectos terminados con fansubpy
 fx/   # efectos visuales para aplicar al archivo .ass con timing
     ├── core
@@ -49,6 +52,7 @@ fx/   # efectos visuales para aplicar al archivo .ass con timing
     │   └── particles.py  # helpers de partículas compartidos
     ├── effects
     │   ├── __init__.py
+    │   ├── barca_bounce.py  # Efecto Barça — CatCulé rebota de sílaba en sílaba con estrellitas de colores.
     │   ├── glitch_electric.py  # Aberración cromática eléctrica — 3 capas superpuestas (R/B offset + base).
     │   ├── rap_hit.py  # Golpes secos sin onda sinusoidal — feel de rap.
     │   └── wave.py  # Ola suave con sacudida vertical en sílaba activa.
@@ -56,7 +60,6 @@ fx/   # efectos visuales para aplicar al archivo .ass con timing
 generate_readme.py  # regenera las secciones dinámicas del README
 init.py  # crea la estructura del proyecto en /fansubs/<Proyecto>
 main.py  # genera output_karaoke.ass con Whisper
-README.md  # readme con todo el detalle para usar el proyecto
 ```
 <!-- /AUTO:estructura -->
 
@@ -142,6 +145,7 @@ Genera: `fansubs/<Proyecto>/timing/output_karaoke_fx.ass` (ignorado en git por e
 <!-- AUTO:efectos -->
 | Archivo | Función | Descripción |
 |---|---|---|
+| `barca_bounce.py` | `barca_bounce` | Efecto Barça — CatCulé rebota de sílaba en sílaba con estrellitas de colores. |
 | `glitch_electric.py` | `glitch_electric` | Aberración cromática eléctrica — 3 capas superpuestas (R/B offset + base). |
 | `rap_hit.py` | `rap_hit` | Golpes secos sin onda sinusoidal — feel de rap. |
 | `wave.py` | `wave` | Ola suave con sacudida vertical en sílaba activa. |
