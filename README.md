@@ -100,7 +100,7 @@ python -m venv .venv
 
 ### 2. Instala las dependencias
 ```bash
-pip install openai-whisper pyphen pysrt
+pip install openai-whisper pyphen
 ```
 ---
 ## Flujo de trabajo
@@ -124,7 +124,8 @@ fansubs/
 ### 3. Timing al audio/video
 El siguiente comando generará el timing al archivo que contiene el audio de la carpeta `audio/`, al finalizar generará en `timing/` el archivo `.ass`
 ```bash
-python main.py <Proyecto>
+python main.py <Proyecto>            # video horizontal (1920x1080)
+python main.py <Proyecto> --vertical # video vertical (1080x1920)
 ```
 Necesita: `fansubs/<Proyecto>/audio/*.mp4` (Puede ser otros formatos "*.mp3", "*.mp4", "*.wav", "*.m4a", "*.flac")  
 Genera:   `fansubs/<Proyecto>/timing/output_karaoke.ass`

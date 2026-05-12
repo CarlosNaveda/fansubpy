@@ -59,12 +59,13 @@ def normalizar(texto):
     return texto.strip()
 
 
-def generar_ass_header():
-    return """\
+def generar_ass_header(vertical: bool = False):
+    res_x, res_y = (1080, 1920) if vertical else (1920, 1080)
+    return f"""\
 [Script Info]
 ScriptType: v4.00+
-PlayResX: 1920
-PlayResY: 1080
+PlayResX: {res_x}
+PlayResY: {res_y}
 
 [V4+ Styles]
 Format: Name,Fontname,Fontsize,PrimaryColour,SecondaryColour,OutlineColour,BackColour,Bold,Italic,Underline,StrikeOut,ScaleX,ScaleY,Spacing,Angle,BorderStyle,Outline,Shadow,Alignment,MarginL,MarginR,MarginV,Encoding
@@ -193,7 +194,7 @@ def escribir_linea_ass(f, linea: dict, dic):
 
 # ── Runner principal ───────────────────────────────────────────
 
-def run(song: str, no_lyrics: bool = False):
+def run(song: str, no_lyrics: bool = False, vertical: bool = False):
     base = Path(__file__).parent / "fansubs" / song
 
     audio_path = buscar_audio(base)
@@ -230,7 +231,7 @@ def run(song: str, no_lyrics: bool = False):
     print(f"🔍 {len(result['segments'])} segmentos detectados por Whisper")
 
     with open(output_path, "w", encoding="utf-8") as f:
-        f.write(generar_ass_header())
+        f.write(generar_ass_header(vertical))
 
         if usar_lyrics:
             # ── Modo con lyrics ────────────────────────────────
@@ -299,10 +300,7 @@ def run(song: str, no_lyrics: bool = False):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Generador de timeos karaoke con Whisper")
     parser.add_argument("song", help="Nombre de la carpeta en fansubs/ (ej: LinkinPark-InTheEnd)")
-    parser.add_argument(
-        "--no-lyrics",
-        action="store_true",
-        help="Ignorar el archivo de lyrics y usar Whisper directamente",
-    )
+    parser.add_argument("--no-lyrics",action="store_true",help="Ignorar el archivo de lyrics y usar Whisper directamente",)
+    parser.add_argument("--vertical",action="store_true",help="Genera el header para video vertical (1080x1920)",)
     args = parser.parse_args()
-    run(args.song, no_lyrics=args.no_lyrics)
+    run(args.song, no_lyrics=args.no_lyrics, vertical=args.vertical)
