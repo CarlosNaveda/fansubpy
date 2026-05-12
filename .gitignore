@@ -2,6 +2,7 @@
 *_fx.ass
 
 # Python
+.idea/
 __pycache__/
 *.pyc
 *.pyo
