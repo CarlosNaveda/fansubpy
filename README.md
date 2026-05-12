@@ -157,6 +157,21 @@ EFFECT_MAP = {
 ```
 El primer valor es el nombre del estilo en Aegisub. El segundo es el campo `Efecto` de la línea.
 
+## 7. Crear un nuevo efecto
+
+Para describir un efecto de forma completa usa este protocolo:
+
+| # | Campo | Qué incluir | Ejemplo |
+|---|---|---|---|
+| 01 | Paleta de colores | Hex con rol: apagado, activo, partículas | `#004D98` activo · `#9CA9D0` apagado |
+| 02 | Imagen o símbolo | PNG en `assets/` o formas geométricas | `assets/catcule.png` sin fondo |
+| 03 | Entrada de línea | Dirección, estado visual, ms antes del start | cae desde arriba · apagado · 400ms antes |
+| 04 | Efecto por sílaba | Movimiento, color, partículas, elementos viajeros | bounce + flash blanco + estrellitas |
+| 05 | Salida de línea | Dirección, color al salir | cae hacia abajo · fade · color activo |
+| 06 | Estilo Aegisub | Nombre, fuente, tamaño, resolución, posición | Barza · Sara Condensed 50 · vertical · MarginV 320 |
+
+**Opcionales:** referencia visual · feeling (épico / suave / agresivo) · qué NO quieres
+
 ### 6. Pegar subtítulos al video con FFmpeg
 Una vez exportado el `.ass` final desde Aegisub:
 
