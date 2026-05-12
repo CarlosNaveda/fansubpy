@@ -157,7 +157,7 @@ EFFECT_MAP = {
 ```
 El primer valor es el nombre del estilo en Aegisub. El segundo es el campo `Efecto` de la línea.
 
-## 7. Crear un nuevo efecto
+### 6. Crear un nuevo efecto
 
 Para describir un efecto de forma completa usa este protocolo:
 
@@ -172,7 +172,7 @@ Para describir un efecto de forma completa usa este protocolo:
 
 **Opcionales:** referencia visual · feeling (épico / suave / agresivo) · qué NO quieres
 
-### 6. Pegar subtítulos al video con FFmpeg
+### 7. Pegar subtítulos al video con FFmpeg
 Una vez exportado el `.ass` final desde Aegisub:
 
 ```bash
