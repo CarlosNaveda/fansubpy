@@ -10,8 +10,7 @@ Audio File: ../audio/TodavíaMeAcuerdo.mp3
 Video File: ?dummy:23.976000:40000:1080:1920:162:172:179:
 Video AR Value: 0.562500
 Video Zoom Percent: 0.500000
-Active Line: 6
-Video Position: 662
+Video Position: 218
 
 [V4+ Styles]
 Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
@@ -26,9 +25,9 @@ Dialogue: 0,0:00:17.64,0:00:21.14,Barza,,0,0,0,Karaoke,{\k17}Y {\k21}por {\k26}q
 Dialogue: 0,0:00:21.66,0:00:24.29,Barza,,0,0,0,Karaoke,{\k29}Son {\k12}no{\k26}ches {\k18}don{\k13}de {\k12}el {\k37}ai{\k39}re {\k38}pe{\k39}sa
 Dialogue: 0,0:00:24.44,0:00:27.48,Barza,,0,0,0,Karaoke,{\k42}Don{\k18}de {\k20}ca{\k18}da {\k18}pa{\k16}se {\k34}mue{\k17}ve {\k52}fron{\k38}te{\k31}ras
 Dialogue: 0,0:00:27.58,0:00:30.14,Barza,,0,0,0,Karaoke,{\k19}Don{\k9}de {\k11}un {\k14}si{\k32}len{\k15}cio {\k16}en {\k19}Ma{\k29}drid {\k19}va{\k33}le {\k40}más
-Dialogue: 0,0:00:30.49,0:00:33.65,Barza,,0,0,0,Karaoke,{\k30}Que {\k29}mil {\k22}vic{\k24}to{\k33}rias {\k40}cual{\k43}quie{\k95}ra
-Dialogue: 0,0:00:33.81,0:00:36.32,Barza,,0,0,0,Karaoke,{\k16}Y {\k21}to{\k23}da{\k33}vía {\k15}me {\k24}a{\k46}cuer{\k24}do {\k15}de {\k13}Mes{\k21}si
-Dialogue: 0,0:00:36.33,0:00:39.04,Barza,,0,0,0,Karaoke,{\k22}Rom{\k36}pien{\k24}do {\k20}el {\k18}si{\k21}len{\k17}cio {\k11}en {\k8}el {\k23}des{\k37}cuen{\k34}to
+Dialogue: 0,0:00:30.49,0:00:33.63,Barza,,0,0,0,Karaoke,{\k30}Que {\k29}mil {\k22}vic{\k24}to{\k33}rias {\k40}cual{\k43}quie{\k95}ra
+Dialogue: 0,0:00:33.81,0:00:35.79,Barza,,0,0,0,Karaoke,{\k16}Y {\k21}to{\k23}da{\k33}vía {\k15}me {\k24}a{\k46}cuer{\k24}do
+Dialogue: 0,0:00:35.79,0:00:39.04,Barza,,0,0,0,Karaoke,{\k15}De {\k13}Mes{\k21}si {\k22}rom{\k36}pien{\k24}do {\k20}el {\k18}si{\k21}len{\k17}cio {\k11}en {\k8}el {\k23}des{\k37}cuen{\k34}to
 Dialogue: 0,0:00:39.08,0:00:41.20,Barza,,0,0,0,Karaoke,{\k18}Del {\k22}6 {\k19}a {\k40}2, {\k20}del {\k23}5 {\k13}a {\k57}0
 Dialogue: 0,0:00:41.28,0:00:45.16,Barza,,0,0,0,Karaoke,{\k16}Y {\k21}de {\k56}esas {\k18}rue{\k20}das {\k20}de {\k39}pren{\k20}sa {\k20}lle{\k37}nas {\k20}de {\k18}la{\k40}men{\k43}to
 Dialogue: 0,0:00:46.31,0:00:49.37,Barza,,0,0,0,Karaoke,{\k19}Y {\k16}to{\k21}da{\k36}vía {\k17}me {\k19}a{\k44}cuer{\k31}do {\k26}del {\k21}Ber{\k21}na{\k35}béu
@@ -38,7 +37,7 @@ Dialogue: 0,0:00:54.43,0:00:57.78,Barza,,0,0,0,Karaoke,{\k7}Y {\k18}de {\k18}Pi{
 Dialogue: 0,0:00:59.64,0:01:04.17,Barza,,0,0,0,Karaoke,{\k26}Por{\k18}que {\k12}en {\k72}es{\k83}te {\k69}due{\k26}lo {\k34}e{\k40}ter{\k73}no
 Dialogue: 0,0:01:04.61,0:01:07.01,Barza,,0,0,0,Karaoke,{\k12}No {\k37}exis{\k21}te {\k26}par{\k29}ti{\k25}do {\k22}pe{\k23}que{\k45}ño
 Dialogue: 0,0:01:09.00,0:01:13.62,Barza,,0,0,0,Karaoke,{\k8}Ca{\k20}da {\k21}ba{\k36}lón {\k22}que {\k35}to{\k23}ca {\k71}nues{\k21}tra {\k42}ca{\k35}mi{\k43}se{\k85}ta
-Dialogue: 0,0:01:14.11,0:01:18.63,Barza,,0,0,0,Karaoke,{\k28}Car{\k19}ga {\k36}cien {\k57}años {\k33}de {\k47}sue{\k245}ño
+Dialogue: 0,0:01:14.11,0:01:18.48,Barza,,0,0,0,Karaoke,{\k28}Car{\k19}ga {\k36}cien {\k57}años {\k33}de {\k47}sue{\k245}ño
 Dialogue: 0,0:01:18.63,0:01:21.61,Barza,,0,0,0,Karaoke,{\k16}Y {\k24}cuan{\k20}do {\k21}pa{\k38}re{\k16}ce {\k23}que {\k36}no {\k22}que{\k21}da {\k37}alien{\k24}to
 Dialogue: 0,0:01:21.61,0:01:24.62,Barza,,0,0,0,Karaoke,{\k15}A{\k21}pa{\k11}re{\k14}ce {\k31}esa {\k42}chis{\k35}pa {\k20}que {\k31}rom{\k17}pe {\k14}el {\k37}tiem{\k13}po
 Dialogue: 0,0:01:24.68,0:01:25.66,Barza,,0,0,0,Karaoke,{\k39}Así {\k28}so{\k31}mos
@@ -48,8 +47,8 @@ Dialogue: 0,0:01:30.31,0:01:33.26,Barza,,0,0,0,Karaoke,{\k30}Que {\k17}di{\k17}g
 Dialogue: 0,0:01:33.43,0:01:36.36,Barza,,0,0,0,Karaoke,{\k10}Que {\k11}in{\k25}ven{\k34}ten {\k36}du{\k22}das {\k21}en {\k36}ca{\k21}da {\k20}mo{\k36}men{\k21}to
 Dialogue: 0,0:01:36.74,0:01:39.86,Barza,,0,0,0,Karaoke,{\k22}Nos {\k24}da {\k56}igual {\k33}por{\k18}que {\k33}vuel{\k15}ve {\k10}el {\k27}tor{\k34}men{\k40}to
 Dialogue: 0,0:01:39.89,0:01:43.49,Barza,,0,0,0,Karaoke,{\k18}Cuan{\k12}do {\k20}a{\k25}ta{\k38}ca{\k41}mos {\k28}tiem{\k27}blan {\k25}por {\k38}den{\k88}tro
-Dialogue: 0,0:01:43.93,0:01:46.44,Barza,,0,0,0,Karaoke,{\k16}Y {\k21}to{\k23}da{\k33}vía {\k15}me {\k24}a{\k46}cuer{\k24}do {\k15}de {\k13}Mes{\k21}si
-Dialogue: 0,0:01:46.47,0:01:49.20,Barza,,0,0,0,Karaoke,{\k22}Rom{\k36}pien{\k24}do {\k20}el {\k18}si{\k21}len{\k17}cio {\k11}en {\k8}el {\k23}des{\k37}cuen{\k34}to
+Dialogue: 0,0:01:43.93,0:01:45.90,Barza,,0,0,0,Karaoke,{\k16}Y {\k21}to{\k23}da{\k33}vía {\k15}me {\k24}a{\k46}cuer{\k24}do
+Dialogue: 0,0:01:45.90,0:01:49.20,Barza,,0,0,0,Karaoke,{\k15}De {\k13}Mes{\k21}si {\k22}rom{\k36}pien{\k24}do {\k20}el {\k18}si{\k21}len{\k17}cio {\k11}en {\k8}el {\k23}des{\k37}cuen{\k34}to
 Dialogue: 0,0:01:49.23,0:01:51.34,Barza,,0,0,0,Karaoke,{\k18}Del {\k22}6 {\k19}a {\k40}2, {\k20}del {\k23}5 {\k13}a {\k57}0
 Dialogue: 0,0:01:51.40,0:01:55.46,Barza,,0,0,0,Karaoke,{\k16}Y {\k21}de {\k56}esas {\k18}rue{\k20}das {\k20}de {\k39}pren{\k20}sa {\k20}lle{\k37}nas {\k20}de {\k18}la{\k40}men{\k43}to
 Dialogue: 0,0:01:56.41,0:01:59.44,Barza,,0,0,0,Karaoke,{\k19}Y {\k16}to{\k21}da{\k36}vía {\k17}me {\k19}a{\k44}cuer{\k31}do {\k26}del {\k21}Ber{\k21}na{\k35}béu
@@ -57,8 +56,8 @@ Dialogue: 0,0:01:59.44,0:02:01.48,Barza,,0,0,0,Karaoke,{\k18}Ren{\k18}di{\k7}do 
 Dialogue: 0,0:02:01.50,0:02:04.48,Barza,,0,0,0,Karaoke,{\k19}De {\k16}Pu{\k22}yol {\k20}ce{\k15}le{\k24}bran{\k20}do {\k19}con {\k19}or{\k22}gu{\k18}llo {\k40}sin{\k35}ce{\k14}ro
 Dialogue: 0,0:02:04.54,0:02:07.98,Barza,,0,0,0,Karaoke,{\k7}Y {\k18}de {\k18}Pi{\k21}qué {\k17}ce{\k16}le{\k23}bran{\k18}do {\k22}con {\k20}sus {\k21}dos {\k19}de{\k25}dos {\k27}al {\k36}cie{\k27}lo
 Dialogue: 0,0:02:08.90,0:02:11.38,Barza,,0,0,0,Karaoke,{\k19}Y {\k20}to{\k19}da{\k40}vía {\k14}me {\k23}a{\k40}cuer{\k73}do
-Dialogue: 0,0:02:21.33,0:02:23.84,Barza,,0,0,0,Karaoke,{\k16}Y {\k21}to{\k23}da{\k33}vía {\k15}me {\k24}a{\k46}cuer{\k24}do {\k15}de {\k13}Mes{\k21}si
-Dialogue: 0,0:02:23.85,0:02:26.56,Barza,,0,0,0,Karaoke,{\k22}Rom{\k36}pien{\k24}do {\k20}el {\k18}si{\k21}len{\k17}cio {\k11}en {\k8}el {\k23}des{\k37}cuen{\k34}to
+Dialogue: 0,0:02:21.33,0:02:23.31,Barza,,0,0,0,Karaoke,{\k16}Y {\k21}to{\k23}da{\k33}vía {\k15}me {\k24}a{\k46}cuer{\k24}do
+Dialogue: 0,0:02:23.31,0:02:26.56,Barza,,0,0,0,Karaoke,{\k15}De {\k13}Mes{\k21}si {\k22}Rom{\k36}pien{\k24}do {\k20}el {\k18}si{\k21}len{\k17}cio {\k11}en {\k8}el {\k23}des{\k37}cuen{\k34}to
 Dialogue: 0,0:02:26.61,0:02:28.74,Barza,,0,0,0,Karaoke,{\k18}Del {\k22}6 {\k19}a {\k40}2, {\k20}del {\k23}5 {\k13}a {\k57}0
 Dialogue: 0,0:02:28.74,0:02:32.58,Barza,,0,0,0,Karaoke,{\k16}Y {\k21}de {\k56}esas {\k18}rue{\k20}das {\k20}de {\k39}pren{\k20}sa {\k20}lle{\k37}nas {\k20}de {\k18}la{\k40}men{\k43}to
 Dialogue: 0,0:02:33.81,0:02:36.92,Barza,,0,0,0,Karaoke,{\k19}Y {\k16}to{\k21}da{\k36}vía {\k17}me {\k19}a{\k44}cuer{\k31}do {\k26}del {\k21}Ber{\k21}na{\k35}béu
