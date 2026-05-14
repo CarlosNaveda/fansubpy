@@ -52,7 +52,7 @@ fx/   # efectos visuales para aplicar al archivo .ass con timing
     │   └── particles.py  # helpers de partículas compartidos
     ├── effects
     │   ├── __init__.py
-    │   ├── barca_bounce.py  # Efecto Barça — CatCulé rebota de sílaba en sílaba con estrellitas de colores.
+    │   ├── barca_bounce.py  # Efecto Barça — Bolitas que rebotan de sílaba en sílaba con estrellitas de colores.
     │   ├── glitch_electric.py  # Aberración cromática eléctrica — 3 capas superpuestas (R/B offset + base).
     │   ├── rap_hit.py  # Golpes secos sin onda sinusoidal — feel de rap.
     │   └── wave.py  # Ola suave con sacudida vertical en sílaba activa.
@@ -146,7 +146,7 @@ Genera: `fansubs/<Proyecto>/timing/output_karaoke_fx.ass` (ignorado en git por e
 <!-- AUTO:efectos -->
 | Archivo | Función | Descripción |
 |---|---|---|
-| `barca_bounce.py` | `barca_bounce` | Efecto Barça — CatCulé rebota de sílaba en sílaba con estrellitas de colores. |
+| `barca_bounce.py` | `barca_bounce` | Efecto Barça — Bolitas que rebotan de sílaba en sílaba con estrellitas de colores. |
 | `glitch_electric.py` | `glitch_electric` | Aberración cromática eléctrica — 3 capas superpuestas (R/B offset + base). |
 | `rap_hit.py` | `rap_hit` | Golpes secos sin onda sinusoidal — feel de rap. |
 | `wave.py` | `wave` | Ola suave con sacudida vertical en sílaba activa. |
