@@ -2,6 +2,7 @@ import math
 import random
 from pyonfx import Utils
 from core.constants import FRAME_MS, POST_HIDE
+from core.particles import generate_stars
 
 # ── Paleta Barça (BGR para ASS) ────────────────────────────────
 C_APAGADO  = "&H00D0A99C"   # #9CA9D0 — líneas sin tocar
@@ -144,7 +145,24 @@ def barca_bounce(io, line):
                 io.write_line(frame)
 
         # Estrellitas — VIP tiene doble cantidad, más grandes y solo doradas
-        _generate_stars(io, line, x, y, syl_abs_start, vip=es_vip)
+        if es_vip:
+            syl_dur = line.end_time - syl_abs_start
+            star_dur = min(STAR_DUR_VIP * 3, syl_dur) if syl_dur > 0 else STAR_DUR_VIP
+            generate_stars(
+                io, line, x, y, syl_abs_start,
+                count=STAR_COUNT_VIP, dur=star_dur,
+                paleta=PALETA_ESTRELLA_VIP,
+                size_range=(45, 72), dist_range=(40, 100), blur=2,
+                border_color=C_BORDE,
+            )
+        else:
+            generate_stars(
+                io, line, x, y, syl_abs_start,
+                count=STAR_COUNT, dur=STAR_DUR,
+                paleta=PALETA_ESTRELLA,
+                size_range=(28, 48), dist_range=(25, 70), blur=1,
+                border_color=C_BORDE,
+            )
 
         # Bolitas
         _generate_balls(io, line, syls, i, syl_abs_start, y, exit_start)
@@ -276,59 +294,6 @@ def _generate_messi_glow(io, line, syls, exit_start):
                 io.write_line(frame)
 
 
-
-def _generate_stars(io, line, impact_x, impact_y, impact_time, vip=False):
-    """
-    Estrellitas de colores desde el punto de impacto.
-    VIP (Messi/Ronaldinho): doble cantidad, más grandes, más lejos, solo doradas.
-    """
-    shapes     = ["★", "✦", "✧", "·", "•", "✶"]
-    count      = STAR_COUNT_VIP if vip else STAR_COUNT
-    paleta     = PALETA_ESTRELLA_VIP if vip else PALETA_ESTRELLA
-    size_range = (45, 72) if vip else (28, 48)
-    dist_range = (40, 100) if vip else (25, 70)
-
-    if vip:
-        # VIP: duran 3x la duración de la sílaba, con tope en el fin de la línea
-        syl_dur = line.end_time - impact_time  # tiempo restante de la línea
-        dur = min(STAR_DUR_VIP * 3, syl_dur) if syl_dur > 0 else STAR_DUR_VIP
-    else:
-        dur = STAR_DUR
-
-    for _ in range(count):
-        star            = line.copy()
-        star.layer      = 4
-        star.start_time = impact_time
-        star.end_time   = impact_time + dur
-
-        angle    = random.uniform(0, 2 * math.pi)
-        distance = random.randint(*dist_range)
-        x_orig   = impact_x + random.randint(-10, 10)
-        y_orig   = impact_y + random.randint(-10, 10)
-        x_dest   = int(x_orig + math.cos(angle) * distance)
-        y_dest   = int(y_orig + math.sin(angle) * distance)
-        color    = random.choice(paleta)
-        size     = random.randint(*size_range)
-        shape    = random.choice(shapes)
-        blur_val = 2 if vip else 1  # más glow en VIP
-
-        star.text = (
-            "{\\an5"
-            "\\move(%d,%d,%d,%d)"
-            "\\fad(0,%d)"
-            "\\1c%s\\3c%s"
-            "\\bord0\\shad0\\blur%d"
-            "\\fscx%d\\fscy%d}"
-            "%s"
-        ) % (
-            x_orig, y_orig, x_dest, y_dest,
-            dur - 60,
-            color, C_BORDE,
-            blur_val,
-            size, size,
-            shape
-        )
-        io.write_line(star)
 
 
 def _generate_balls(io, line, syls, syl_idx, syl_abs_start, text_y, exit_start):

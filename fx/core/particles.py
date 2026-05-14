@@ -79,3 +79,70 @@ def generate_electric_sparks(io, line, syl):
             random.choice(["&HFFFFFF&", "&HCBE87A&", "&HE8E87A&"])
         )
         io.write_line(spark)
+
+
+def generate_stars(
+    io, line,
+    impact_x, impact_y, impact_time,
+    count=6,
+    dur=350,
+    paleta=None,
+    size_range=(28, 48),
+    dist_range=(25, 70),
+    blur=1,
+    border_color="&H00000000",
+):
+    """
+    Estrellitas de colores que explotan desde un punto de impacto.
+    Reutilizable por cualquier efecto — parámetros completamente configurables.
+
+    Args:
+        io, line        : contexto pyonfx
+        impact_x/y      : coordenadas del punto de impacto
+        impact_time     : tiempo absoluto de inicio (ms)
+        count           : cantidad de estrellitas
+        dur             : duración en ms
+        paleta          : lista de colores ASS BGR (ej. ["&H00FFFFFF&", ...])
+        size_range      : (min, max) escala fscx/fscy
+        dist_range      : (min, max) distancia de vuelo en px
+        blur            : valor de blur
+        border_color    : color del borde (por defecto negro)
+    """
+    if paleta is None:
+        paleta = ["&H00FFFFFF&"]
+
+    shapes = ["★", "✦", "✧", "·", "•", "✶"]
+
+    for _ in range(count):
+        star            = line.copy()
+        star.layer      = 4
+        star.start_time = impact_time
+        star.end_time   = impact_time + dur
+
+        angle    = random.uniform(0, 2 * math.pi)
+        distance = random.randint(*dist_range)
+        x_orig   = impact_x + random.randint(-10, 10)
+        y_orig   = impact_y + random.randint(-10, 10)
+        x_dest   = int(x_orig + math.cos(angle) * distance)
+        y_dest   = int(y_orig + math.sin(angle) * distance)
+        color    = random.choice(paleta)
+        size     = random.randint(*size_range)
+        shape    = random.choice(shapes)
+
+        star.text = (
+            "{\\an5"
+            "\\move(%d,%d,%d,%d)"
+            "\\fad(0,%d)"
+            "\\1c%s\\3c%s"
+            "\\bord0\\shad0\\blur%d"
+            "\\fscx%d\\fscy%d}"
+            "%s"
+        ) % (
+            x_orig, y_orig, x_dest, y_dest,
+            dur - 60,
+            color, border_color,
+            blur,
+            size, size,
+            shape
+        )
+        io.write_line(star)
