@@ -31,14 +31,14 @@ STAR_COUNT_VIP = 12  # estrellitas VIP (doble)
 STAR_DUR     = 350   # ms que duran las estrellitas
 STAR_DUR_VIP = 500   # ms estrellitas VIP (más largas)
 
-# ── CatCulé ────────────────────────────────────────────────────
-CAT_SIZE           = 55
-CAT_ENTER_Y_OFFSET = -220
+# ── Bolitas ────────────────────────────────────────────────────
+BALL_SIZE           = 55
+BALL_ENTER_Y_OFFSET = -220
 
 
 def barca_bounce(io, line):
     """
-    Efecto Barça — CatCulé rebota de sílaba en sílaba con estrellitas de colores.
+    Efecto Barça — Bolitas que rebotan de sílaba en sílaba con estrellitas de colores.
     Entrada: línea cae desde arriba en color apagado.
     Bounce: logo viaja de sílaba en sílaba, impacta, pinta de azul y genera estrellitas.
     Easter egg: Messi y Ronaldinho tienen estrellitas doradas dobles.
@@ -146,8 +146,8 @@ def barca_bounce(io, line):
         # Estrellitas — VIP tiene doble cantidad, más grandes y solo doradas
         _generate_stars(io, line, x, y, syl_abs_start, vip=es_vip)
 
-        # Logo CatCulé
-        _generate_catcule(io, line, syls, i, syl_abs_start, y, exit_start)
+        # Bolitas
+        _generate_balls(io, line, syls, i, syl_abs_start, y, exit_start)
 
         # Post-canto — VIP queda dorado, normales en azul apagado
         after_start = syl_abs_end
@@ -331,20 +331,20 @@ def _generate_stars(io, line, impact_x, impact_y, impact_time, vip=False):
         io.write_line(star)
 
 
-def _generate_catcule(io, line, syls, syl_idx, syl_abs_start, text_y, exit_start):
-    """Logo CatCulé moviéndose entre sílabas. Se detiene si llega exit_start."""
+def _generate_balls(io, line, syls, syl_idx, syl_abs_start, text_y, exit_start):
+    """Bolitas moviéndose entre sílabas. Se detiene si llega exit_start."""
     syl      = syls[syl_idx]
     target_x = int(syl.center)
-    target_y = int(text_y - CAT_SIZE // 2 - 12)
+    target_y = int(text_y - BALL_SIZE // 2 - 12)
 
     if syl_idx == 0:
         origin_x   = target_x
-        origin_y   = target_y + CAT_ENTER_Y_OFFSET
+        origin_y   = target_y + BALL_ENTER_Y_OFFSET
         travel_dur = 300
     else:
         prev_syl   = syls[syl_idx - 1]
         origin_x   = int(prev_syl.center)
-        origin_y   = int(text_y - CAT_SIZE // 2 - BOUNCE_H)
+        origin_y   = int(text_y - BALL_SIZE // 2 - BOUNCE_H)
         travel_dur = TRAVEL_DUR
 
     # Viaje hacia la sílaba
@@ -367,7 +367,7 @@ def _generate_catcule(io, line, syls, syl_idx, syl_abs_start, text_y, exit_start
         cur_x  = int(origin_x + (target_x - origin_x) * t_norm)
         cur_y  = int(origin_y + (target_y - origin_y) * t_ease)
         rot    = int(math.sin(t_norm * math.pi * 2) * 20)
-        scale  = int(CAT_SIZE * (0.8 + 0.2 * t_norm))
+        scale  = int(BALL_SIZE * (0.8 + 0.2 * t_norm))
 
         frame.text = (
             "{\\an5\\pos(%d,%d)\\fscx%d\\fscy%d\\frz%d"
@@ -409,7 +409,7 @@ def _generate_catcule(io, line, syls, syl_idx, syl_abs_start, text_y, exit_start
                     "\\1c%s\\3c%s\\bord0\\shad0\\blur0}"
                     "●"
                 ) % (
-                    cur_x, cur_y, CAT_SIZE, CAT_SIZE, rot,
+                    cur_x, cur_y, BALL_SIZE, BALL_SIZE, rot,
                     random.choice([C_AMARILLO, C_DORADO]), C_BORDE
                 )
                 io.write_line(frame)
@@ -438,7 +438,7 @@ def _generate_catcule(io, line, syls, syl_idx, syl_abs_start, text_y, exit_start
                 "\\alpha%s\\bord0\\shad0\\blur0\\1c%s\\3c%s}"
                 "●"
             ) % (
-                target_x, cur_y, CAT_SIZE, CAT_SIZE,
+                target_x, cur_y, BALL_SIZE, BALL_SIZE,
                 alpha_str, C_DORADO, C_BORDE
             )
             io.write_line(frame)

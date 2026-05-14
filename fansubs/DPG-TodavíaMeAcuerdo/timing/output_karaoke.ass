@@ -4,17 +4,19 @@
 ScriptType: v4.00+
 PlayResX: 1080
 PlayResY: 1920
+YCbCr Matrix: TV.709
 
 [Aegisub Project Garbage]
-Audio File: ../audio/TodavíaMeAcuerdo.mp3
-Video File: ?dummy:23.976000:40000:1080:1920:162:172:179:
+Audio File: ../audio/TodavíaMeAcuerdo.mp4
+Video File: ../audio/TodavíaMeAcuerdo.mp4
+Video AR Mode: 4
 Video AR Value: 0.562500
-Video Zoom Percent: 0.500000
-Video Position: 218
+Video Zoom Percent: 0.625000
+Video Position: 272
 
 [V4+ Styles]
 Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
-Style: Barza,Saira Condensed,50,&H00FFFFFF,&H000000FF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,2,0,2,10,10,320,1
+Style: Barza,Saira Condensed,80,&H00FFFFFF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,2,0,2,10,10,320,1
 
 [Events]
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
