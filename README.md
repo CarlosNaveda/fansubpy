@@ -23,7 +23,7 @@ Descarga los videos para que puedan verlo en toda su calidad 😃
 2. Sobre el <span style="color:#3C8CE2">idioma</span>: Por default se usa el mismo lenguaje del archivo de audio a utilizar. En caso se requiera modificar se puede hacer en el archivo "main.py" sección "Configuración".
 3. Sobre los <span style="color:#3C8CE2">formatos</span>: El script acepta cualquier formato de audio/video que soporte FFmpeg.
 4. Sobre <span style="color:#ff6b6b">problemas conocidos</span>: (Este tipo de problemas he visto que se requiere solucionar manualmente ya en Aegisub)
-- Start adelantado — Whisper adelanta el inicio de frases al silencio previo (110 ms–1230 ms). Afecta principalmente frases tras pausas musicales o instrumentales.
+- Start adelantado — Whisper adelanta el inicio de frases al silencio previo (110 ms–1230 ms). Afecta principalmente frases tras pausas musicales o instrumentales.
 - Silabeo proporcional — Las sílabas se distribuyen en tiempo igual dentro de cada palabra. No detecta que una sílaba se canta más larga que otra.
 - Palabras perdidas por Whisper — Ocasionalmente Whisper no transcribe una palabra (ej. "cielo"). El alineador la interpola con timing estimado.
 - Timestamps de fin — Ligeras imprecisiones en el end de líneas con palabras largas o notas sostenidas.
@@ -52,7 +52,7 @@ fx/   # efectos visuales para aplicar al archivo .ass con timing
     │   └── particles.py  # helpers de partículas compartidos
     ├── effects
     │   ├── __init__.py
-    │   ├── barca_bounce.py  # Efecto Barça — Bolitas que rebotan de sílaba en sílaba con estrellitas de colores.
+    │   ├── barca_bounce.py  # Efecto Barça — CatCulé rebota de sílaba en sílaba con estrellitas de colores.
     │   ├── glitch_electric.py  # Aberración cromática eléctrica — 3 capas superpuestas (R/B offset + base).
     │   ├── rap_hit.py  # Golpes secos sin onda sinusoidal — feel de rap.
     │   └── wave.py  # Ola suave con sacudida vertical en sílaba activa.
@@ -131,7 +131,7 @@ Necesita: `fansubs/<Proyecto>/audio/*.mp4` (Puede ser otros formatos "*.mp3", "*
 Genera:   `fansubs/<Proyecto>/timing/output_karaoke.ass`
 
 
-### 4. Revisar el timeo en  Aesgisub
+### 4. Revisar el timeo en Aegisub
 Aquí se realizan los ajustes necesarios y aplican estilos manualmente.
 
 ### 5. Aplicar efectos FX
@@ -146,7 +146,7 @@ Genera: `fansubs/<Proyecto>/timing/output_karaoke_fx.ass` (ignorado en git por e
 <!-- AUTO:efectos -->
 | Archivo | Función | Descripción |
 |---|---|---|
-| `barca_bounce.py` | `barca_bounce` | Efecto Barça — Bolitas que rebotan de sílaba en sílaba con estrellitas de colores. |
+| `barca_bounce.py` | `barca_bounce` | Efecto Barça — CatCulé rebota de sílaba en sílaba con estrellitas de colores. |
 | `glitch_electric.py` | `glitch_electric` | Aberración cromática eléctrica — 3 capas superpuestas (R/B offset + base). |
 | `rap_hit.py` | `rap_hit` | Golpes secos sin onda sinusoidal — feel de rap. |
 | `wave.py` | `wave` | Ola suave con sacudida vertical en sílaba activa. |
@@ -178,15 +178,36 @@ Para describir un efecto de forma completa usa este protocolo:
 **Opcionales:** referencia visual · feeling (épico / suave / agresivo) · qué NO quieres
 
 ### 7. Pegar subtítulos al video con FFmpeg
-Una vez exportado el `.ass` final desde Aegisub:
+
+Una vez que tengas el video editado e importado el `.ass` final desde Aegisub:
 
 ```bash
 ffmpeg -i "tu_video.mp4" -vf "ass=output_karaoke_fx.ass" "video_final.mp4"
 ```
 > El font usado en el `.ass` debe estar instalado en tu sistema para que ffmpeg lo renderice correctamente.
 
----
+#### 7.1 Preview sin video — fondo negro
+Si aún no tienes el video editado pero quieres revisar cómo quedan los efectos, puedes generar un preview sobre fondo negro usando solo el audio:
 
+**Video vertical (1080x1920):**
+```bash
+ffmpeg -f lavfi -i color=c=black:size=1080x1920:rate=24 \
+       -i "fansubs/<Proyecto>/audio/<audio>.mp3" \
+       -vf "ass=fansubs/<Proyecto>/timing/output_karaoke_fx.ass" \
+       -shortest "fansubs/<Proyecto>/timing/video_preview.mp4"
+```
+
+**Video horizontal (1920x1080):**
+```bash
+ffmpeg -f lavfi -i color=c=black:size=1920x1080:rate=24 \
+       -i "fansubs/<Proyecto>/audio/<audio>.mp3" \
+       -vf "ass=fansubs/<Proyecto>/timing/output_karaoke_fx.ass" \
+       -shortest "fansubs/<Proyecto>/timing/video_preview.mp4"
+```
+
+> El archivo generado `video_preview.mp4` está ignorado en git. Úsalo para revisar los efectos antes de tener el video final.
+
+---
 
 ### Créditos
 [Claude](https://claude.ai) & Carlos Naveda 🤝
