@@ -20,6 +20,8 @@ README  = ROOT / "README.md"
 FX_DIR  = ROOT / "fx"
 FANSUBS = ROOT / "fansubs"
 
+BADGES_START = "<!-- AUTO:badges -->"
+BADGES_END   = "<!-- /AUTO:badges -->"
 
 # ── Helpers ───────────────────────────────────────────────────────
 
@@ -58,6 +60,17 @@ def get_function_name(filepath: Path) -> str:
         pass
     return filepath.stem
 
+# ── Badges de tecnología ──────────────────────────────
+
+def build_badges() -> str:
+    badges = [
+        "![Python](https://img.shields.io/badge/Python-3.12-3776AB?style=flat&logo=python&logoColor=white)",
+        "![Whisper](https://img.shields.io/badge/Whisper-OpenAI-412991?style=flat&logo=openai&logoColor=white)",
+        "![pyphen](https://img.shields.io/badge/pyphen-silabeo-4B8BBE?style=flat&logoColor=white)",
+        "![FFmpeg](https://img.shields.io/badge/FFmpeg-007808?style=flat&logo=ffmpeg&logoColor=white)",
+        "![Aegisub](https://img.shields.io/badge/Aegisub-karaoke-B22222?style=flat&logoColor=white)",
+    ]
+    return " ".join(badges) + "\n"
 
 # ── Sección: estructura de archivos ──────────────────────────────
 
@@ -177,6 +190,7 @@ def main():
 
     content = README.read_text(encoding="utf-8")
 
+    content = replace_section(content, "badges", build_badges())
     content = replace_section(content, "estructura", build_estructura())
     content = replace_section(content, "efectos",    build_efectos())
 

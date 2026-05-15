@@ -1,6 +1,7 @@
 # Fansubpy 🎵
  > ⚠️ Este script fue desarrollado por [Claude](https://claude.ai) (Anthropic) en colaboración con Carlos Naveda. Es una primera versión funcional que se irá mejorando con el tiempo.
-
+<!-- AUTO:badges -->
+<!-- /AUTO:badges -->
 ![Fansubpy](assets/banner.png)
 ---
 ## ¿Qué hace fansubpy?
