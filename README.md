@@ -1,6 +1,8 @@
 # Fansubpy 🎵
  > ⚠️ Este script fue desarrollado por [Claude](https://claude.ai) (Anthropic) en colaboración con Carlos Naveda. Es una primera versión funcional que se irá mejorando con el tiempo.
 <!-- AUTO:badges -->
+![Python](https://img.shields.io/badge/Python-3.12-3776AB?style=flat&logo=python&logoColor=white) ![Whisper](https://img.shields.io/badge/Whisper-OpenAI-412991?style=flat&logo=openai&logoColor=white) ![pyphen](https://img.shields.io/badge/pyphen-silabeo-4B8BBE?style=flat&logoColor=white) ![FFmpeg](https://img.shields.io/badge/FFmpeg-007808?style=flat&logo=ffmpeg&logoColor=white) ![Aegisub](https://img.shields.io/badge/Aegisub-karaoke-B22222?style=flat&logoColor=white)
+
 <!-- /AUTO:badges -->
 ![Fansubpy](assets/banner.png)
 ---
@@ -53,7 +55,7 @@ fx/   # efectos visuales para aplicar al archivo .ass con timing
     │   └── particles.py  # helpers de partículas compartidos
     ├── effects
     │   ├── __init__.py
-    │   ├── barca_bounce.py  # Efecto Barça — CatCulé rebota de sílaba en sílaba con estrellitas de colores.
+    │   ├── barca_bounce.py  # Efecto Barça — Bolitas que rebotan de sílaba en sílaba con estrellitas de colores.
     │   ├── glitch_electric.py  # Aberración cromática eléctrica — 3 capas superpuestas (R/B offset + base).
     │   ├── rap_hit.py  # Golpes secos sin onda sinusoidal — feel de rap.
     │   └── wave.py  # Ola suave con sacudida vertical en sílaba activa.
@@ -147,7 +149,7 @@ Genera: `fansubs/<Proyecto>/timing/output_karaoke_fx.ass` (ignorado en git por e
 <!-- AUTO:efectos -->
 | Archivo | Función | Descripción |
 |---|---|---|
-| `barca_bounce.py` | `barca_bounce` | Efecto Barça — CatCulé rebota de sílaba en sílaba con estrellitas de colores. |
+| `barca_bounce.py` | `barca_bounce` | Efecto Barça — Bolitas que rebotan de sílaba en sílaba con estrellitas de colores. |
 | `glitch_electric.py` | `glitch_electric` | Aberración cromática eléctrica — 3 capas superpuestas (R/B offset + base). |
 | `rap_hit.py` | `rap_hit` | Golpes secos sin onda sinusoidal — feel de rap. |
 | `wave.py` | `wave` | Ola suave con sacudida vertical en sílaba activa. |
