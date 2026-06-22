@@ -42,6 +42,7 @@ Si separamos los tipos de ajuste:
 ## Estructura del proyecto
 <!-- AUTO:estructura -->
 ```
+README.md  # readme con todo el detalle para usar el proyecto
 assets/ 
     ├── banner.png
     ├── logo.png
@@ -63,7 +64,6 @@ fx/   # efectos visuales para aplicar al archivo .ass con timing
 generate_readme.py  # regenera las secciones dinámicas del README
 init.py  # crea la estructura del proyecto en /fansubs/<Proyecto>
 main.py  # genera output_karaoke.ass con Whisper
-README.md  # readme con todo el detalle para usar el proyecto
 ```
 <!-- /AUTO:estructura -->
 
