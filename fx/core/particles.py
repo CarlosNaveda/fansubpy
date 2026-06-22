@@ -81,6 +81,150 @@ def generate_electric_sparks(io, line, syl):
         io.write_line(spark)
 
 
+def generate_ember_burst(io, line, x, y, width, start_time, paleta, count=10, dur=650):
+    """
+    Brasas que suben desde un punto dado, con flicker y encogimiento
+    progresivo — como chispas que se desprenden de una llama.
+    Punto de emisión genérico (no atado al centro de la sílaba) para
+    poder lanzarlas desde el frente de quemado en movimiento.
+    """
+    shapes = ["•", "·", "✦"]
+
+    for _ in range(count):
+        ember            = line.copy()
+        ember.layer      = 3
+        ember.start_time = start_time + random.randint(0, 80)
+        ember.end_time   = ember.start_time + dur
+
+        x_orig = x + random.randint(-int(width // 2), int(width // 2))
+        y_orig = y + random.randint(-4, 4)
+        rise   = random.randint(40, 110)
+        drift  = random.randint(-20, 20)
+        x_dest = x_orig + drift
+        y_dest = y_orig - rise
+
+        color = random.choice(paleta)
+        size  = random.randint(14, 30)
+        shape = random.choice(shapes)
+
+        ember.text = (
+            "{\\an5"
+            "\\move(%d,%d,%d,%d)"
+            "\\fad(20,%d)"
+            "\\bord0\\shad0"
+            "\\1c%s"
+            "\\alpha&H20&"
+            "\\blur1"
+            "\\fscx%d\\fscy%d}"
+            "%s"
+        ) % (
+            x_orig, y_orig, x_dest, y_dest,
+            dur - 60,
+            color,
+            size, size,
+            shape
+        )
+        io.write_line(ember)
+
+
+def generate_smoke(io, line, x, y, width, start_time, paleta, count=8, dur=750):
+    """
+    Humo que se desprende del frente de quemado — manchas grises,
+    difusas, que suben y se expanden mientras se desvanecen.
+    A diferencia de las brasas, no brilla: es opaco y blando.
+    """
+    for _ in range(count):
+        puff            = line.copy()
+        puff.layer      = 3
+        puff.start_time = start_time + random.randint(0, 150)
+        puff.end_time   = puff.start_time + dur
+
+        x_orig = x + random.randint(-int(width // 2), int(width // 2))
+        y_orig = y + random.randint(-4, 4)
+        rise   = random.randint(70, 160)
+        drift  = random.randint(-30, 30)
+        x_dest = x_orig + drift
+        y_dest = y_orig - rise
+
+        color     = random.choice(paleta)
+        size0     = random.randint(16, 24)
+        size1     = size0 + random.randint(40, 65)
+        grow_dur  = dur - random.randint(0, 80)
+
+        puff.text = (
+            "{\\an5"
+            "\\move(%d,%d,%d,%d)"
+            "\\fad(40,%d)"
+            "\\bord0\\shad0"
+            "\\1c%s"
+            "\\alpha&H38&"
+            "\\blur6"
+            "\\fscx%d\\fscy%d"
+            "\\t(0,%d,\\fscx%d\\fscy%d)}"
+            "●"
+        ) % (
+            x_orig, y_orig, x_dest, y_dest,
+            dur - 100,
+            color,
+            size0, size0,
+            grow_dur, size1, size1
+        )
+        io.write_line(puff)
+
+
+def generate_embers(io, line, syl, paleta, count=22, dur=650):
+    """Brasas que suben desde el centro de la sílaba al encenderse."""
+    generate_ember_burst(
+        io, line, syl.center, syl.middle, syl.width,
+        line.start_time + syl.start_time,
+        paleta, count, dur
+    )
+
+
+def generate_ash_flakes(io, line, syl, color, start_time, count=16, dur=550):
+    """
+    Ceniza que se desprende y cae al consumirse la sílaba por completo —
+    motas oscuras que caen con leve giro y se desvanecen.
+    """
+    x = syl.center
+    y = syl.middle
+
+    for _ in range(count):
+        flake            = line.copy()
+        flake.layer      = 3
+        flake.start_time = start_time + random.randint(0, 120)
+        flake.end_time   = flake.start_time + dur
+
+        x_orig = x + random.randint(-int(syl.width // 2), int(syl.width // 2))
+        y_orig = y + random.randint(-int(syl.height // 2), int(syl.height // 2))
+        fall   = random.randint(40, 90)
+        drift  = random.randint(-15, 15)
+        x_dest = x_orig + drift
+        y_dest = y_orig + fall
+
+        size = random.randint(10, 20)
+        rot  = random.randint(0, 360)
+
+        flake.text = (
+            "{\\an5"
+            "\\move(%d,%d,%d,%d)"
+            "\\fad(0,%d)"
+            "\\bord0\\shad0"
+            "\\1c%s"
+            "\\alpha&H40&"
+            "\\blur0\\frz%d"
+            "\\fscx%d\\fscy%d}"
+            "."
+        ) % (
+            x_orig, y_orig, x_dest, y_dest,
+            dur - 100,
+            color,
+            rot,
+            size, size
+        )
+        io.write_line(flake)
+
+
 def generate_stars(
     io, line,
     impact_x, impact_y, impact_time,
