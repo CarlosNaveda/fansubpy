@@ -42,12 +42,12 @@ Si separamos los tipos de ajuste:
 ## Estructura del proyecto
 <!-- AUTO:estructura -->
 ```
+CLAUDE.md
 README.md  # readme con todo el detalle para usar el proyecto
 assets/ 
     ├── banner.png
     ├── logo.png
     └── logo_sinfondo.png
-CLAUDE.md
 fansubs/   # proyectos terminados con fansubpy
 fx/   # efectos visuales para aplicar al archivo .ass con timing
     ├── core
