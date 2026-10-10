@@ -47,6 +47,7 @@ assets/
     ├── banner.png
     ├── logo.png
     └── logo_sinfondo.png
+CLAUDE.md
 fansubs/   # proyectos terminados con fansubpy
 fx/   # efectos visuales para aplicar al archivo .ass con timing
     ├── core
@@ -59,6 +60,7 @@ fx/   # efectos visuales para aplicar al archivo .ass con timing
     │   ├── glitch_electric.py  # Aberración cromática eléctrica — 3 capas superpuestas (R/B offset + base).
     │   ├── inner_fire.py  # Fuego interior — la sílaba se quema de verdad al cantarse.
     │   ├── rap_hit.py  # Golpes secos sin onda sinusoidal — feel de rap.
+    │   ├── starry_heart.py  # Latido estelar — un corazón atraviesa las sílabas en onda entre estrellas que brillan.
     │   └── wave.py  # Ola suave con sacudida vertical en sílaba activa.
     └── run.py  # punto de entrada — genera el _fx.ass
 generate_readme.py  # regenera las secciones dinámicas del README
@@ -104,7 +106,7 @@ python -m venv .venv
 
 ### 2. Instala las dependencias
 ```bash
-pip install openai-whisper pyphen
+pip install openai-whisper pyphen pyonfx
 ```
 ---
 ## Flujo de trabajo
@@ -154,6 +156,7 @@ Genera: `fansubs/<Proyecto>/timing/output_karaoke_fx.ass` (ignorado en git por e
 | `glitch_electric.py` | `glitch_electric` | Aberración cromática eléctrica — 3 capas superpuestas (R/B offset + base). |
 | `inner_fire.py` | `inner_fire` | Fuego interior — la sílaba se quema de verdad al cantarse. |
 | `rap_hit.py` | `rap_hit` | Golpes secos sin onda sinusoidal — feel de rap. |
+| `starry_heart.py` | `starry_heart` | Latido estelar — un corazón atraviesa las sílabas en onda entre estrellas que brillan. |
 | `wave.py` | `wave` | Ola suave con sacudida vertical en sílaba activa. |
 <!-- /AUTO:efectos -->
 

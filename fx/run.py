@@ -3,7 +3,7 @@ import argparse
 from pathlib import Path
 from pyonfx import Ass
 
-from effects import wave, rap_hit, glitch_electric, barca_bounce, inner_fire
+from effects import wave, rap_hit, glitch_electric, barca_bounce, inner_fire, starry_heart
 
 
 # ── Mapa (estilo ASS, efecto ASS) → función ──────────────────────
@@ -14,6 +14,8 @@ EFFECT_MAP = {
     ("Chester+Hard", "karaoke"): glitch_electric,
     ("Barza",        "karaoke"): barca_bounce,
     ("Fire",         "karaoke"): inner_fire,
+    ("Latido",       "karaoke"): starry_heart,
+    ("KC",           "karaoke"): starry_heart,
 }
 
 

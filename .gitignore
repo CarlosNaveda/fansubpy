@@ -17,6 +17,7 @@ venv/
 *.mp4
 *.wav
 *.mkv
+*.mov
 
 # OS
 .DS_Store

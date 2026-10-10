@@ -79,7 +79,7 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
 def buscar_audio(base: Path) -> Path:
     """Busca el primer archivo de audio soportado en audio/."""
     audio_dir = base / "audio"
-    for ext in ("*.mp3", "*.mp4", "*.wav", "*.m4a", "*.flac"):
+    for ext in ("*.mp3", "*.mp4", "*.mov", "*.mkv", "*.wav", "*.m4a", "*.flac"):
         archivos = list(audio_dir.glob(ext))
         if archivos:
             return archivos[0]
@@ -199,7 +199,7 @@ def run(song: str, no_lyrics: bool = False, vertical: bool = False):
 
     audio_path = buscar_audio(base)
     if not audio_path:
-        print(f"❌ No se encontró audio (.mp3/.mp4/.wav/.m4a/.flac) en {base / 'audio'}")
+        print(f"❌ No se encontró audio (.mp3/.mp4/.mov/.mkv/.wav/.m4a/.flac) en {base / 'audio'}")
         sys.exit(1)
 
     lyrics_files = list((base / "lyrics").glob("*.txt"))
